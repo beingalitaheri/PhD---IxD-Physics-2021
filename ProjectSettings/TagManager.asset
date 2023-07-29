@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - projectile
+  - Floor
+  - Left_hand
+  - Right_hand
+  - FingerTip
   layers:
   - Default
   - TransparentFX

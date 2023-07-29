@@ -36,12 +36,12 @@ namespace _VIRAL._03_Scripts
                 if (useSnapHandRight || useSnapHandLeft)
                 {
                     h.ShowVisualSnapHand(true, _hand.hand_type);
-                    _hand.ShowHand(false);
+                    //_hand.ShowHand(false);
                 }
                 else
                 {
-                    _hand.MakeTransparent(true);
-                    _hand.ShowHand(true);
+                    //_hand.MakeTransparent(true);
+                    //_hand.ShowHand(true);
                 }
             });
 
