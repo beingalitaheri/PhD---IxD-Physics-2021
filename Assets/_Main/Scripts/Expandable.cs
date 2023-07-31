@@ -74,7 +74,7 @@ namespace _VIRAL._03_Scripts
         private void Focus(bool focus) 
         {
             _focused = focus;
-            _swellingRing.Show(focus);
+            if (_swellingRing != null) { _swellingRing.Show(focus); }
             if (!focus) 
             {
                 _swellingRing.Activate(false);
@@ -84,7 +84,7 @@ namespace _VIRAL._03_Scripts
         {
             _viralSettings.EngineerModeActive.Subscribe(engineerMode =>
             {
-                _swellingRing.gameObject.SetActive(engineerMode);
+                if (_swellingRing != null) { _swellingRing.gameObject.SetActive(engineerMode); }
                 _canBeExpanded = engineerMode;
                 if (!engineerMode)
                 {
@@ -123,7 +123,10 @@ namespace _VIRAL._03_Scripts
         {
             float newPos = _doublePinchStartValue+ value *_sequenceDuration;
             _expandSequence.Goto(newPos);
-            _swellingRing.SetRingScale(1 + _expandSequence.position / _sequenceDuration);
+            if (_swellingRing != null)
+            {
+                _swellingRing.SetRingScale(1 + _expandSequence.position / _sequenceDuration);
+            }
         }
         private void InitializePincher() 
         {
@@ -141,8 +144,8 @@ namespace _VIRAL._03_Scripts
             {
                 if (_focused && _canBeExpanded && _expandSequence !=null) 
                 {
-                    SetExpansionPercentage((distance - _doublePinchStartDistancce) * 1f); 
-                    _swellingRing.Activate(true);
+                    SetExpansionPercentage((distance - _doublePinchStartDistancce) * 1f);
+                    if (_swellingRing != null) { _swellingRing.Activate(true); }
                 }
             });
         }
